@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## PAKODO rules
+- All app data (requests, profile, settings) lives in localStorage via src/lib/pakodo-store.ts (useSyncExternalStore); prototype requirement: no login, no backend.
+- Product extraction (src/lib/extract.ts) and insight maths (src/lib/insights.ts) stay pure functions with tests in src/test/pakodo-logic.test.ts.
+- Speech uses the browser Web Speech API only (src/hooks/use-speech.ts), non-continuous; no paid APIs or keys.
+- Nothing is saved without the explicit "Confirm and Save" step; sample data is flagged `sample: true` and labelled in the UI.
